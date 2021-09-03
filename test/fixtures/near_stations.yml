@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  line: MyString
+  station_name: MyString
+  time_on_foot: 1
+
+two:
+  line: MyString
+  station_name: MyString
+  time_on_foot: 1
