@@ -18,13 +18,13 @@
     <% @estates.each do |estate| %>
       <tr>
         <td><%= estate.name %></td>
-        <td><%= estate.price %></td>
+        <td><%= estate.price %>円</td>
         <td><%= estate.adress %></td>
-        <td><%= estate.age %></td>
+        <td><%= estate.age %>年</td>
         <td><%= estate.content %></td>
-        <td><%= link_to 'Show', estate %></td>
-        <td><%= link_to 'Edit', edit_estate_path(estate) %></td>
-        <td><%= link_to 'Destroy', estate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', estate %></td>
+        <td><%= link_to '編集', edit_estate_path(estate) %></td>
+        <td><%= link_to '削除', estate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Estate', new_estate_path %>
+<%= link_to '新しく物件登録する', new_estate_path %>

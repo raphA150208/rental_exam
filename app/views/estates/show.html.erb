@@ -1,29 +1,56 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>物件名:</strong>
   <%= @estate.name %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>賃料:</strong>
   <%= @estate.price %>
 </p>
 
 <p>
-  <strong>Adress:</strong>
+  <strong>住所:</strong>
   <%= @estate.adress %>
 </p>
 
 <p>
-  <strong>Age:</strong>
+  <strong>築年数:</strong>
   <%= @estate.age %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>備考:</strong>
   <%= @estate.content %>
 </p>
 
-<%= link_to 'Edit', edit_estate_path(@estate) %> |
-<%= link_to 'Back', estates_path %>
+<% if @near_stations.present? %>
+  <hr>
+
+  <% @near_stations.each_with_index do |near_station, i| %>
+    <h4>
+      最寄り駅
+      <%= i + 1 %>
+    </h4>
+
+    <div class="container">
+      <p>
+        <span class="bold">路線名</span>
+        <%= near_station.line %>
+      </p>
+      <p>
+        <span class="bold">駅名</span>
+        <%= near_station.station_name %>
+      </p>
+      <p>
+        <span class="bold">徒歩分数</span>
+        <%= "#{near_station.time_on_foot}分" %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+
+
+<%= link_to '編集', edit_estate_path(@estate) %> |
+<%= link_to '戻る', estates_path %>
