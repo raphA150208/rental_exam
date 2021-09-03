@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>物件一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Adress</th>
+      <th>Age</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estates.each do |estate| %>
+      <tr>
+        <td><%= estate.name %></td>
+        <td><%= estate.price %>円</td>
+        <td><%= estate.adress %></td>
+        <td><%= estate.age %>年</td>
+        <td><%= estate.content %></td>
+        <td><%= link_to '詳細', estate %></td>
+        <td><%= link_to '編集', edit_estate_path(estate) %></td>
+        <td><%= link_to '削除', estate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新しく物件登録する', new_estate_path %>
